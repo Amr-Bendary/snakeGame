@@ -9,7 +9,9 @@ import { update as updateFood, draw as drawFood } from "./food.js";
 import { GRID_SIZE } from "./grid.js";
 
 const gameBoard = document.getElementById("game-board");
-const score = document.querySelector(".score");
+const score = document.querySelector("#score");
+const toggler = document.querySelector(".settingsToggler");
+const settings = document.getElementById("settings");
 let lastRenderTime = 0;
 let gameOver = false;
 
@@ -17,11 +19,17 @@ let gameOver = false;
 gameBoard.style.gridTemplateRows = "repeat(" + GRID_SIZE + ", 1fr)";
 gameBoard.style.gridTemplateColumns = "repeat(" + GRID_SIZE + ", 1fr)";
 
+// User SETTINGS
+toggler.addEventListener("click", () => {
+    settings.classList.toggle("open");
+});
+
 // Game RENDER_LOOP
 function main(currentTime) {
     if (gameOver) {
-        alert("You Lost. Your score: " + (snakeBody.length - 1) + "");
+        alert("You Lost. Your Score: " + (snakeBody.length - 1) + "");
         window.location = "/snakeGame/";
+        return;
     }
     window.requestAnimationFrame(main);
     const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000;

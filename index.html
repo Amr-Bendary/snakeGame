@@ -17,18 +17,65 @@
             justify-content: center;
             margin: 0;
             background-color: black;
+            color: black;
         }
 
-        .score {
-            font-size: 2rem;
+        .top-bar {
+            display: flex;
+            display: -webkit-flex;
             background-color: crimson;
             width: calc(100vmin - 100px);
             text-align: center;
-            padding: 10px 0;
+            padding: 10px 5rem;
             border-top-right-radius: 8px;
             border-top-left-radius: 8px;
+            font-family: sans-serif;
+            position: relative;
+            justify-content: space-evenly;
         }
 
+        .top-bar p {
+            font-size: 2rem;
+            padding: 0;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .settingsToggler {
+            outline: none !important;
+            position: absolute;
+            font-weight: 900;
+            top: 50%;
+            transform: translateY(-50%)rotate(90deg);
+            right: 10px;
+            padding: 0;
+            margin: 0;
+            line-height: 1.4rem;
+            border: none;
+            font-size: 2rem;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        #settings {
+            transition: .2s ease-in-out;
+            position: absolute;
+            list-style: none;
+            top: 48px;
+            right: 0;
+            opacity: 0;
+            padding: 0;
+            text-align: right;
+            background: #b3b3b3;
+            padding: 6px;
+            border-bottom-left-radius: 6px;
+            font-weight: bold;
+        }
+        #settings h3 {
+            font-weight: bold;
+            margin: 0 auto 2rem;
+            text-align: center;
+        }
         #game-board {
             background-color: #ccc;
             width: calc(100vmin - 100px);
@@ -38,28 +85,74 @@
             grid-template-columns: repeat(21, 1fr);
             border-bottom-right-radius: 8px;
             border-bottom-left-radius: 8px;
-
         }
 
         .snake {
-            background-color: blueviolet;
-            border: .25vmin solid black;
+            background-color: black;
             box-shadow: 0 0 10px -5px black;
+            /* border-radius: 10%; */
+        }
+
+        .snake:first-of-type {
+            transform: scale(1.2);
             border-radius: 10%;
         }
 
         .food {
-            background-color: gold;
-            border: .25vmin solid black;
-            box-shadow: 0 0 10px -5px black;
+            background-color: black;
+            box-shadow: 0 0 10px -5px black, 0 0 10px -5px black inset;
             border-radius: 50%;
+        }
+
+        .open {
+            opacity: 1 !important;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-bottom: 0px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            touch-action: manipulation;
+            cursor: pointer;
+            user-select: none;
+            background-image: none;
+            padding: 4px 8px;
+            border-width: 1px;
+            border-style: solid;
+            border-color: transparent;
+            border-image: initial;
+            border-radius: 4px;
+        }
+
+        li {
+            margin-top: 10px;
+        }
+
+        li .btn:first-of-type {
+            margin-left: 10px;
         }
     </style>
     <script src="game.js" defer type="module"></script>
 </head>
 
 <body>
-    <div class="score"></div>
+    <div class="top-bar">
+        <button class="settingsToggler">></button>
+        <ul id="settings">
+            <h3>Game Setting</h3>
+            <li>Snake Speed: coming soon...</li>
+            <li>Grid Size: coming soon...</li>
+            <li>Snake Color: coming soon...</li>
+            <li>Food Color: coming soon...</li>
+        </ul>
+        <p class="settingsPreview">Speed: 10</p>
+        <p id="score"></p>
+    </div>
     <div id="game-board"></div>
 </body>
 
