@@ -21,7 +21,7 @@ gameBoard.style.gridTemplateColumns = "repeat(" + GRID_SIZE + ", 1fr)";
 function main(currentTime) {
     if (gameOver) {
         alert("You Lost. Your score: " + (snakeBody.length - 1) + "");
-        window.location = "/index.html";
+        window.location = "/";
     }
     window.requestAnimationFrame(main);
     const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000;
