@@ -1,2 +1,3 @@
 # snakeGame
- Simple snake game with real-time score view, using only Vanilla JS
+### Simple snake game with real-time score board, using only Vanilla JS, no plugins and no jquery for best performance.
+##### Hosted Here: 
